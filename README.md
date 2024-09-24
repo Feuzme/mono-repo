@@ -9,7 +9,7 @@
     * [Versions](#versions)
     * [Description](#description)
     * [Pre-requisite](#pre-requisite)
-    * [Install project](#install-project)
+    * [Launch project](#launch-project)
         * [using docker](#using-docker)
 
 <!-- TOC -->
@@ -28,12 +28,12 @@ This repository should demonstrate how to set up and use a mono repository sprin
 
 * [Docker](https://docs.docker.com/engine/install/)
 
-## Install project
+## Launch project
 
 ### using docker
 
 run command :
 
 ```shell
-docker-compose up
+docker compose up
 ```
