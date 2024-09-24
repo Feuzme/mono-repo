@@ -11,7 +11,7 @@
     <groupId>fr.feuzme</groupId>
     <artifactId>monorepo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo</name>
+    <name>monorepo</name>
     <description>Demo project for Spring Boot</description>
     <url/>
     <licenses>
@@ -58,6 +58,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
     </dependencies>
 
