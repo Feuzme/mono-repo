@@ -29,4 +29,6 @@ This repository should demonstrate how to set up and use a mono repository sprin
 
 ## Install project
 
+### using docker
+
 **TODO**
