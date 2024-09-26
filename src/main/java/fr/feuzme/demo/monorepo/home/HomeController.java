@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/home")
-@ConditionalOnComponent("home-component")
+@ConditionalOnComponent("home-api")
 public class HomeController {
     private final HomeService homeService;
 
