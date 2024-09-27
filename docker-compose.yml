@@ -41,5 +41,5 @@ services:
       COMPONENT: home-listener
       BROKER_URL: broker:29092
     depends_on:
-      - mongo
       - broker
+      - mongo

@@ -2,9 +2,11 @@ package fr.feuzme.demo.monorepo.home;
 
 import lombok.AllArgsConstructor;
 import lombok.Value;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Value
 @AllArgsConstructor
+@Document("home")
 public class Home {
 
     Owner owner;
@@ -23,7 +25,7 @@ public class Home {
         Integer number;
         String street;
         String city;
-        String postalCode;
+        String zipCode;
         String country;
 
     }

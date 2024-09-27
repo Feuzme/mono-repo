@@ -5,13 +5,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class HomeService {
     private final HomeSender homeSender;
+    private final HomeRepository homeRepository;
 
-    public HomeService(HomeSender homeSender) {
+    public HomeService(HomeSender homeSender, HomeRepository homeRepository) {
         this.homeSender = homeSender;
+        this.homeRepository = homeRepository;
     }
 
     void sendHome(HomeDto homeDto) {
         homeSender.sendHome(map(homeDto));
+    }
+
+    void saveHome(HomeDto homeDto) {
+        homeRepository.save(map(homeDto));
     }
 
     Home map(HomeDto homeDto) {
