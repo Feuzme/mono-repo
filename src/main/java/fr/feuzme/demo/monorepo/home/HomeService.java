@@ -1,28 +1,35 @@
 package fr.feuzme.demo.monorepo.home;
 
-import org.mapstruct.Mapper;
 import org.springframework.stereotype.Service;
 
 @Service
 public class HomeService {
     private final HomeSender homeSender;
-    private final HomeMapper mapper;
 
-    public HomeService(HomeSender homeSender, HomeMapper mapper) {
+    public HomeService(HomeSender homeSender) {
         this.homeSender = homeSender;
-        this.mapper = mapper;
     }
 
     void sendHome(HomeDto homeDto) {
-        homeSender.sendHome(mapper.toHome(homeDto));
+        homeSender.sendHome(map(homeDto));
     }
 
-    @Mapper(componentModel = "spring")
-    interface HomeMapper {
-        Home toHome(HomeDto homeDto);
-
-        Home.Owner toOwner(HomeDto.OwnerDto ownerDto);
-
-        Home.Address toAddress(HomeDto.AddressDto addressDto);
+    Home map(HomeDto homeDto) {
+        if (homeDto != null) {
+            return new Home(
+                    new Home.Owner(
+                            homeDto.getOwner().getName(),
+                            homeDto.getOwner().getSurname()
+                    ),
+                    new Home.Address(
+                            homeDto.getAddress().getNumber(),
+                            homeDto.getAddress().getStreet(),
+                            homeDto.getAddress().getCity(),
+                            homeDto.getAddress().getZipCode(),
+                            homeDto.getAddress().getCountry()
+                    )
+            );
+        }
+        return null;
     }
 }

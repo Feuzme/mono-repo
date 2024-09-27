@@ -15,10 +15,7 @@ public class HomeController {
 
     @GetMapping()
     Home getFooHome() {
-        return new Home(
-                new Home.Owner("Abitebol", "Georges"),
-                new Home.Address(55, "monde", "DeMerde", "'59000", "France")
-        );
+        return null;
     }
 
     @PostMapping

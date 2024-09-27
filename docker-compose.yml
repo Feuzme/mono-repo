@@ -34,3 +34,12 @@ services:
       BROKER_URL: broker:29092
     depends_on:
       - broker
+      - mongo
+  listener:
+    build: .
+    environment:
+      COMPONENT: home-listener
+      BROKER_URL: broker:29092
+    depends_on:
+      - mongo
+      - broker
