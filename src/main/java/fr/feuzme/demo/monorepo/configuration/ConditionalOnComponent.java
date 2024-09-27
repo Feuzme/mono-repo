@@ -34,7 +34,7 @@ public @interface ConditionalOnComponent {
 
     class OnComponentCondition extends SpringBootCondition {
 
-        private static final String KEY = "component";
+        private static final String KEY = "COMPONENT";
 
         @Override
         public ConditionOutcome getMatchOutcome(ConditionContext context, AnnotatedTypeMetadata metadata) {
