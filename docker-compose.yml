@@ -32,6 +32,7 @@ services:
     environment:
       COMPONENT: home-api
       BROKER_URL: broker:29092
+      SERVER_PORT: 8080
     depends_on:
       - broker
       - mongo
@@ -40,6 +41,9 @@ services:
     environment:
       COMPONENT: home-listener
       BROKER_URL: broker:29092
+      MONGO_HOST: mongodb://mongo/monorepo
+      SERVER_PORT: 8081
+      GROUP_ID: home-listener
     depends_on:
       - broker
       - mongo
