@@ -1,28 +1,30 @@
 package fr.feuzme.demo.monorepo.home;
 
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import lombok.Value;
 
-@Value
+@Data
 @RequiredArgsConstructor
 public class HomeDto {
-    OwnerDto owner;
-    AddressDto address;
+    private OwnerDto owner;
+    private AddressDto address;
 
-    @Value
+    @Data
     @RequiredArgsConstructor
-    class OwnerDto {
-        String name;
-        String surname;
+    static class OwnerDto {
+        private String name;
+        private String surname;
     }
 
-    @Value
+    @Data
     @RequiredArgsConstructor
-    class AddressDto {
-        Integer number;
-        String street;
-        String city;
-        String zipCode;
-        String country;
+    static class AddressDto {
+        private Integer number;
+        private String street;
+        private String city;
+        private String zipCode;
+        private String country;
     }
 }
+
+
