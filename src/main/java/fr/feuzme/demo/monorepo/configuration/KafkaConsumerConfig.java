@@ -51,10 +51,6 @@ public class KafkaConsumerConfig {
         DefaultJackson2JavaTypeMapper typeMapper = new DefaultJackson2JavaTypeMapper();
         typeMapper.setTypePrecedence(Jackson2JavaTypeMapper.TypePrecedence.TYPE_ID);
         typeMapper.addTrustedPackages("fr.feuzme.demo.monorepo");
-//        Map<String, Class<?>> mappings = new HashMap<>();
-//        mappings.put("home", HomeDto.class);
-//        typeMapper.setIdClassMapping(mappings);
-//        converter.setTypeMapper(typeMapper);
         return converter;
     }
 }
