@@ -14,8 +14,8 @@ public class HomeController {
     }
 
     @GetMapping()
-    Home getFooHome() {
-        return null;
+    HomeDto getHomeByOwner(HomeDto.OwnerDto owner) {
+        return homeService.getHomeByOwner(owner);
     }
 
     @PostMapping

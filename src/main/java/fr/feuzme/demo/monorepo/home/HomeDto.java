@@ -1,23 +1,26 @@
 package fr.feuzme.demo.monorepo.home;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+
+import java.time.LocalDateTime;
 
 @Data
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class HomeDto {
     private OwnerDto owner;
     private AddressDto address;
+    private LocalDateTime modified;
 
     @Data
-    @RequiredArgsConstructor
-    static class OwnerDto {
+    @AllArgsConstructor
+    public static class OwnerDto {
         private String name;
         private String surname;
     }
 
     @Data
-    @RequiredArgsConstructor
+    @AllArgsConstructor
     static class AddressDto {
         private Integer number;
         private String street;
