@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class HomeSender {
     @Autowired
-    KafkaTemplate<String, Object> kafkaTemplate;
+    KafkaTemplate<String, Home> kafkaTemplate;
 
     public void sendHome(Home home) {
         kafkaTemplate.send("home-topic", home);
