@@ -1,4 +1,4 @@
-package fr.feuzme.demo.monorepo.home;
+package fr.feuzme.demo.monorepo.home.port.in;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,7 +21,7 @@ public class HomeDto {
 
     @Data
     @AllArgsConstructor
-    static class AddressDto {
+    public static class AddressDto {
         private Integer number;
         private String street;
         private String city;

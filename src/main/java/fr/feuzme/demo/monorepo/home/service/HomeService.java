@@ -1,5 +1,9 @@
-package fr.feuzme.demo.monorepo.home;
+package fr.feuzme.demo.monorepo.home.service;
 
+import fr.feuzme.demo.monorepo.home.port.in.HomeDto;
+import fr.feuzme.demo.monorepo.home.port.models.Home;
+import fr.feuzme.demo.monorepo.home.port.out.HomeRepository;
+import fr.feuzme.demo.monorepo.home.port.out.HomeSender;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -10,34 +14,16 @@ public class HomeService {
     private final HomeSender homeSender;
     private final HomeRepository homeRepository;
 
-    public HomeDto getHomeByOwner(HomeDto.OwnerDto ownerDto) {
-        var home = homeRepository.findByOwner(new Home.Owner(ownerDto.getName(), ownerDto.getSurname()));
-        return new HomeDto(
-                new HomeDto.OwnerDto(
-                        home.getOwner().name(),
-                        home.getOwner().surname()
-                ),
-                new HomeDto.AddressDto(
-                        home.getAddress().number(),
-                        home.getAddress().street(),
-                        home.getAddress().zipCode(),
-                        home.getAddress().city(),
-                        home.getAddress().country()
-                ),
-                home.getModified()
-        );
-    }
-
     public HomeService(HomeSender homeSender, HomeRepository homeRepository) {
         this.homeSender = homeSender;
         this.homeRepository = homeRepository;
     }
 
-    void sendHome(HomeDto homeDto) {
+    public void sendHome(HomeDto homeDto) {
         homeSender.sendHome(map(homeDto));
     }
 
-    void saveHome(HomeDto homeDto) {
+    public void saveHome(HomeDto homeDto) {
         homeRepository.save(map(homeDto));
     }
 

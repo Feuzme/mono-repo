@@ -1,4 +1,4 @@
-package fr.feuzme.demo.monorepo.home;
+package fr.feuzme.demo.monorepo.home.port.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Value;
@@ -18,7 +18,7 @@ public class Home {
     public record Owner(String name, String surname) {
     }
 
-    record Address(Integer number, String street, String city, String zipCode, String country) {
+    public record Address(Integer number, String street, String city, String zipCode, String country) {
     }
 
 }

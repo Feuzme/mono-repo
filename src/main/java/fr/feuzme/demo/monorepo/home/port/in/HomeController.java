@@ -1,6 +1,8 @@
-package fr.feuzme.demo.monorepo.home;
+package fr.feuzme.demo.monorepo.home.port.in;
 
 import fr.feuzme.demo.monorepo.configuration.ConditionalOnComponent;
+import fr.feuzme.demo.monorepo.home.port.models.Home;
+import fr.feuzme.demo.monorepo.home.service.HomeService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,8 +16,8 @@ public class HomeController {
     }
 
     @GetMapping()
-    HomeDto getHomeByOwner(HomeDto.OwnerDto owner) {
-        return homeService.getHomeByOwner(owner);
+    Home getHomeByOwner(@PathVariable String name) {
+        return homeService.getHomeByName(name);
     }
 
     @PostMapping
