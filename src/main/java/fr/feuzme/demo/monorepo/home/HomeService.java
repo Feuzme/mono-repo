@@ -41,6 +41,10 @@ public class HomeService {
         homeRepository.save(map(homeDto));
     }
 
+    public Home getHomeByName(String name) {
+        return homeRepository.findByOwnerName(name);
+    }
+
     Home map(HomeDto homeDto) {
         if (homeDto != null) {
             return new Home(
