@@ -1,8 +1,17 @@
-FROM openjdk:21-jdk
-EXPOSE 8080
-LABEL authors="feuzme"
-COPY . .
-RUN ./mvnw clean install
-CMD ["java", "-jar", "./target/monorepo-0.0.1-SNAPSHOT.jar"]
+FROM maven:3.9-eclipse-temurin-21 AS builder
+WORKDIR /app
+COPY pom.xml .
+RUN mvn dependency:go-offline
+COPY src src
+RUN mvn package
+RUN java -Djarmode=layertools -jar target/monorepô.jar extract
 
-
+FROM eclipse-temurin:21-jre-alpine
+RUN addgroup -S demo && adduser -S demo -G demo
+USER demo
+WORKDIR /app
+COPY --from=builder app/dependencies/ ./
+COPY --from=builder app/spring-boot-loader/ ./
+COPY --from=builder app/snapshot-dependencies/ ./
+COPY --from=builder app/application/ ./
+ENTRYPOINT ["java", "org.springframework.boot.loader.launch.JarLauncher"]
