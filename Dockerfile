@@ -4,7 +4,7 @@ COPY pom.xml .
 RUN mvn dependency:go-offline
 COPY src src
 RUN mvn package
-RUN java -Djarmode=layertools -jar target/monorepô.jar extract
+RUN java -Djarmode=layertools -jar target/monorepo-*.jar extract
 
 FROM eclipse-temurin:21-jre-alpine
 RUN addgroup -S demo && adduser -S demo -G demo

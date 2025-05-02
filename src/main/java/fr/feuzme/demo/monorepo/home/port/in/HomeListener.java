@@ -1,6 +1,7 @@
-package fr.feuzme.demo.monorepo.home;
+package fr.feuzme.demo.monorepo.home.port.in;
 
 import fr.feuzme.demo.monorepo.configuration.ConditionalOnComponent;
+import fr.feuzme.demo.monorepo.home.service.HomeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
